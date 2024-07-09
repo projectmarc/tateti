@@ -1,15 +1,15 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 char board[3][3];
 
 // Write all the cells of the board with ' '
 void initializeBoard();
 void printBoard();
+bool isCellAvailable(int row, int col);
 
 int main()
 {
-    initializeBoard();
-    printBoard();
     return 0;
 }
 
@@ -34,4 +34,13 @@ void printBoard()
         }
         printf("\n");
     }
+}
+
+bool isCellAvailable(int row, int col)
+{
+    if (board[row-1][col-1] == ' ')
+    {
+        return true;
+    }
+    return false;
 }
