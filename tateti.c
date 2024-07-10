@@ -91,7 +91,7 @@ void userMovement()
         scanf("%i %i", &row, &col);
         row -= 1;
         col -= 1;
-        if (isCellAvailable(row, col))
+        if (isIndexValid(row, col) && isCellAvailable(row, col))
         {
             board[row][col] = 'x';
             isMovementAssigned = true;
