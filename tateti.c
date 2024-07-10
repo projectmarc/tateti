@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 char board[3][3];
 
@@ -8,10 +9,10 @@ void initializeBoard();
 void printBoard();
 bool isCellAvailable(int row, int col);
 int countAvailableCells();
+void computerMovement();
 
 int main()
 {
-    initializeBoard();
     return 0;
 }
 
@@ -61,4 +62,20 @@ int countAvailableCells()
         }
     }
     return availableCells;
+}
+
+void computerMovement()
+{
+    int randomRow, randomCol;
+    bool isMovementAssigned = false;
+    while (!isMovementAssigned)
+    {
+        randomCol = rand() % 3;
+        randomRow = rand() % 3;
+        if (isCellAvailable(randomRow, randomCol))
+        {
+            board[randomRow][randomCol] = 'o';
+            isMovementAssigned = true;
+        }
+    }
 }
