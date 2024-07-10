@@ -11,6 +11,7 @@ bool isCellAvailable(int row, int col);
 int countAvailableCells();
 void computerMovement();
 void userMovement();
+bool isIndexValid(int row, int col);
 
 int main()
 {
@@ -100,4 +101,15 @@ void userMovement()
             printf("Enter a valid and available cell index\n");
         }
     }
+}
+
+bool isIndexValid(int row, int col)
+{
+    bool rowCondition = row > 0 && row < 3;
+    bool colCondition = col > 0 && col <3;
+    if (rowCondition && colCondition)
+    {
+        return true;
+    }
+    return false;
 }
