@@ -7,9 +7,11 @@ char board[3][3];
 void initializeBoard();
 void printBoard();
 bool isCellAvailable(int row, int col);
+int countAvailableCells();
 
 int main()
 {
+    initializeBoard();
     return 0;
 }
 
@@ -38,9 +40,25 @@ void printBoard()
 
 bool isCellAvailable(int row, int col)
 {
-    if (board[row-1][col-1] == ' ')
+    if (board[row][col] == ' ')
     {
         return true;
     }
     return false;
+}
+
+int countAvailableCells()
+{
+    int availableCells = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (isCellAvailable(i, j))
+            {
+                availableCells++;
+            }
+        }
+    }
+    return availableCells;
 }
