@@ -34,8 +34,10 @@ int main()
         if (checkWin())
         {
             thereIsAWinner = true;
+            break;
         }
         changePlayer();
+        printBoard();
     }
     if (thereIsAWinner)
     {
