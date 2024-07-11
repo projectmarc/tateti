@@ -14,9 +14,31 @@ void computerMovement();
 void userMovement();
 bool isIndexValid(int row, int col);
 bool checkWin();
+void changePlayer();
 
 int main()
 {
+    initializeBoard();
+    bool thereIsAWinner = false;
+    printBoard();
+    while (countAvailableCells() > 0 && !thereIsAWinner)
+    {
+        if (currentPlayer == 'x')
+        {
+            userMovement();
+            currentPlayer = 'o';
+        }
+        else
+        {
+            computerMovement();
+            currentPlayer = 'o';
+        }
+        printBoard();
+        if (checkWin())
+        {
+            thereIsAWinner = true;
+        }
+    }
     return 0;
 }
 
@@ -146,4 +168,16 @@ bool checkWin()
     }
     // If no one won
     return false;
+}
+
+void changePlayer()
+{
+    if (currentPlayer == 'x')
+    {
+        currentPlayer = 'o';
+    }
+    else
+    {
+        currentPlayer = 'x';
+    }
 }
