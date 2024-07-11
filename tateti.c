@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <time.h>
 
 char board[3][3];
 char currentPlayer = 'x';
@@ -19,6 +20,8 @@ void changePlayer();
 int main()
 {
     initializeBoard();
+    // Generate random seed for the computerMovement() function
+    srand(time(NULL));
     bool thereIsAWinner = false;
     printBoard();
     while (countAvailableCells() > 0 && !thereIsAWinner)
