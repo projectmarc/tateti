@@ -71,6 +71,7 @@ void printBoard()
         }
         printf("\n");
     }
+    printf("\n");
 }
 
 bool isCellAvailable(int row, int col)
